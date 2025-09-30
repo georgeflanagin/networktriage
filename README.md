@@ -58,8 +58,9 @@ These two statements convey the same facts:
 [2] `inet 141.166.181.180/22 brd 141.166.183.255`
 
 The IP address of the workstation is `141.166.181.180`. The netmask of `255.255.252.0` and `/22` both 
-give the dimensions of the network that the workstation is a part of. They say that of the 32 bits that
+give the dimensions of the network that the workstation is a part of: Of the 32 bits that
 make up the IP address, the first 22 are the *network address* and the next 10 are the *host address*.
+(The base-256 math is left as an exercise for the reader.)
 In this example, 
 
 ```
@@ -69,13 +70,18 @@ In this example,
 141.166.183.255 -- the last/largest address on the network.
 ```
 
+Most of the UR network (everything that starts with 141.166) is cut into /22 chunks, meaning there
+are 1024 IP addresses in each chunk.
+
 The rules for network traffic are:
 
 1. Computers on the same network can "see" each other. They send their packets
     directly to each other without needing a router.
-1. Computers on different networks require a "route" between the networks.
+1. Computers on different networks require a "route" between their networks to
+    communicate.
 1. A "router" is a computer with at least two interfaces, and the interfaces are on
-    different networks.
+    at least two different networks. Internally, its software can move packets from
+    one interface to another one. By default, this cannot be done.
 1. A "switch" is a computer that allows computers on the same network to talk to each other.
 
 
