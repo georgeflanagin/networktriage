@@ -12,6 +12,22 @@ Knowledge gained from looking at the lights on the cards is probability rather t
 - If two lights are on and one is blinking really fast, that means a lot of packets are moving through the interface.
 - The colors are often irrelevant and differ from vendor to vendor. Yellow often signals a gigabit connection, but almost all are, so some vendors have gone back to green. Orange often means 2.5 or 5 gigabits for the connection. 10 gigabit requires a different kind of "plug."
 
+## About ping
+
+A successful ping only means that:
+
+- There is a working network route to the target.
+- The target (or something between you and the target) is responding to pings.
+- It does not guarantee that the machine is usable, that the operating system is running normally, or that you can log in. A printer, a switch, a router, or even an usuable interface card can answer ping.
+
+A failed ping can mean several things:
+
+- The host is down (no power, no OS, or network interface inactive).
+- The host is up but configured to ignore ping.
+- A firewall/switch/router in between is dropping ICMP packets.
+- There’s no valid route to the target network.
+
+
 ## If you can login...
 
 If you can login to the computer via its console (hey, if you can login via ssh, everything is cool, right?), try either "ip addr" or "ifconfig." They show similar information, organized slightly differently. The commands list all the interfaces on the computer, and you want the one that has the IP address that starts with 141.166. The example is from the workstation in my office. 
@@ -83,6 +99,7 @@ The rules for network traffic are:
     at least two different networks. Internally, its software can move packets from
     one interface to another one. By default, this cannot be done.
 1. A "switch" is a computer that allows computers on the same network to talk to each other.
+1. Only computers on the same network can determine each other's MAC addresses.
 
 
 
