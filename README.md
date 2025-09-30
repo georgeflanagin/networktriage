@@ -51,10 +51,38 @@ of some kind that will allow you to configure this interface and use it.
 
 ## Decoding the IP address.
 
-These two statements convey the same fact:
+These two statements convey the same facts:
 
 [1] `inet 141.166.181.180  netmask 255.255.252.0  broadcast 141.166.183.255`
 
 [2] `inet 141.166.181.180/22 brd 141.166.183.255`
 
-Both 
+The IP address of the workstation is `141.166.181.180`. The netmask of `255.255.252.0` and `/22` both 
+give the dimensions of the network that the workstation is a part of. They say that of the 32 bits that
+make up the IP address, the first 22 are the *network address* and the next 10 are the *host address*.
+In this example, 
+
+```
+141.166.180.0   -- the network address.
+141.166.180.1   -- usually the "gateway" to reach other networks.
+0  .  0.  1.180 -- the host address on the network.
+141.166.183.255 -- the last/largest address on the network.
+```
+
+The rules for network traffic are:
+
+1. Computers on the same network can "see" each other. They send their packets
+    directly to each other without needing a router.
+1. Computers on different networks require a "route" between the networks.
+1. A "router" is a computer with at least two interfaces, and the interfaces are on
+    different networks.
+1. A "switch" is a computer that allows computers on the same network to talk to each other.
+
+
+
+
+
+
+
+
+
