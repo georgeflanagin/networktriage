@@ -65,6 +65,12 @@ of some kind that will allow you to configure this interface and use it.
 
 `LOWER_UP` means there is an electrical connection to *something* at the other end.
 
+`3c:ec:ef:d1:8b:af` is the MAC address. It is a unique identifier for that one network
+interface. There are 281474976710656 (16^12) possible values, so we are not running out.
+When a device is added to our network, the folks in IS put the MAC address in their database.
+If the MAC address is not in their database, you cannot use it on our network --- unless you are
+using the VPN.
+
 ## Decoding the IP address.
 
 These two statements convey the same facts:
